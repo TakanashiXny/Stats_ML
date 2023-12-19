@@ -123,3 +123,15 @@ $$
 b \leftarrow b+\eta y_i
 $$
 4. 转至2，直至训练集中无误分类点
+
+### 算法收敛性
+
+设训练数据集$T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}$是线性可分的，其中$x_i \in \mathcal{X}=\mathbf{R}^n, y_i \in \mathcal{Y}=\{-1,+1\},i=1,2,\cdots,N$，则
+- 存在满足条件的$\parallel\hat{\omega}_{opt}\parallel=1$的超平面$\hat{\omega} \cdot \hat{x}=\omega_{opt} \cdot x + b_{opt}=0$将训练数据集完全正确分开；且存在$\gamma>0$，对所有$i=1,2,\cdot,N$
+$$
+y_i(\omega_{opt} \cdot x + b_{opt}) \geqslant \gamma
+$$
+- 令$\gamma=\underset{i}{\text{min}}\{y_i(\omega_{opt} \cdot x + b_{opt})\}, R=\underset{1 \leqslant i \leqslant N}{\text{max}}\parallel\hat{x}_i\parallel$，则感知机算法在训练数据集上的误分类次数$k$满足不等式
+$$
+k \leqslant (\frac{R}{\gamma})^2
+$$
